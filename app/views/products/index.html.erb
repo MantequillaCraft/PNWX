@@ -1,0 +1,17 @@
+<div id="products">
+ <h1 style="max-width: 1200px;
+    margin: auto;
+    padding: 40px 20px 0 20px; /* Elimina padding inferior */
+    display: flex;
+    flex-wrap: wrap;"
+    >Products</h1>
+  <hr style="
+    border: none;
+    border-top: 1px solid #d3d3d3; 
+    opacity: 0.5; 
+    margin-top: 20px;
+    margin-bottom: 20px;
+    max-width: 1200px"
+  ><div id="products">
+    <%= render 'products', products: @products%>
+</div>

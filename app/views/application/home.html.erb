@@ -1,121 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pacific Northwest X-Ray Inc.</title>
-  <style>
-      body {
-          font-family: Arial, sans-serif;
-          background-color: #f3f3f3;
-          margin: 0;
-          padding: 0;
-      }
-
-      header {
-          background-color: #1a4789;
-          padding: 20px;
-          color: white;
-          text-align: center;
-      }
-
-      header h1 {
-          margin: 0;
-      }
-
-      .search-bar {
-          margin: 20px auto;
-          max-width: 600px;
-          text-align: center;
-      }
-
-      .search-bar input {
-          width: 100%;
-          padding: 10px;
-          font-size: 16px;
-          border: 1px solid #ccc;
-          border-radius: 5px;
-      }
-
-      .content {
-          max-width: 1200px;
-          margin: 20px auto;
-          background-color: white;
-          padding: 20px;
-          border-radius: 15px;
-      }
-
-      h2 {
-          color: #333;
-      }
-
-      .product-categories {
-          display: flex;
-          justify-content: space-around;
-          flex-wrap: wrap;
-          margin-bottom: 20px;
-      }
-
-      .product-card {
-          background-color: #E9F2FF;
-          width: 20%;
-          padding: 20px;
-          text-align: center;
-          border-radius: 15px;
-          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      }
-
-      .product-card h3 {
-          margin-bottom: 10px;
-          font-size: 18px;
-      }
-
-      .product-card p {
-          font-size: 14px;
-          margin-bottom: 15px;
-      }
-
-      .product-card button {
-          padding: 10px 15px;
-          background-color: #ff6200;
-          color: white;
-          border: none;
-          border-radius: 5px;
-          cursor: pointer;
-      }
-
-      .product-card button:hover {
-          background-color: #ff4700;
-      }
-
-      /* Styling for the bottom section with a distinct grey background */
-      .related-section {
-          background-color: #f3f3f3;
-          padding: 20px;
-          border-radius: 15px;
-      }
-
-      .related-products {
-          display: flex;
-          justify-content: space-around;
-          flex-wrap: wrap;
-      }
-
-      .related-products .product-card {
-          background-color: white;
-          width: 25%;
-      }
-
-  </style>
-</head>
-<body>
-<header>
-  <h1>Pacific Northwest X-Ray Inc.</h1>
-  <div class="search-bar">
-    <input type="text" placeholder="Search for X-Ray products...">
-  </div>
-</header>
-
 <div class="content">
   <h2>Professional X-Ray Products & Equipment</h2>
   <p>Discover our comprehensive range of high-quality X-ray solutions for medical imaging professionals.</p>
@@ -124,13 +6,17 @@
     <div class="product-card">
       <h3>Lead Glass</h3>
       <p>Superior radiation shielding for X-Ray Rooms</p>
-      <button>Explore Products</button>
+      <%= link_to lead_glass_path do %>
+        <button class="logo-link">Explore Products</button>
+      <% end %>
     </div>
 
     <div class="product-card">
       <h3>Mobile Lead Barriers</h3>
       <p>Flexible radiation protection solution</p>
-      <button>View Options</button>
+      <%= link_to mobile_lead_barriers_path do %>
+        <button class="logo-link">Explore Products</button>
+      <% end %>
     </div>
 
     <div class="product-card">
@@ -169,6 +55,3 @@
     </div>
   </div>
 </div>
-
-</body>
-</html>

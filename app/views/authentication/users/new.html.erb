@@ -1,37 +1,188 @@
-<%= form_with(model: product) do |form| %>
-  <% if product.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+    color: #333;
+  }
 
-      <ul>
-        <% product.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+  /* Estilos para el formulario */
+  .product-item div {
+      position: relative;
+      margin-bottom: 20px;
+  }
+
+  .product-item label {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 14px;
+      color: #999;
+      transition: 0.3s ease all;
+      pointer-events: none;
+  }
+
+  .product-item input {
+      width: 478px;
+      padding: 12px 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      outline: none;
+      background-color: #f9f9f9;
+      transition: 0.3s;
+  }
+
+  /* Estilo al hacer focus */
+  .product-item input:focus {
+      border-color: #28a745;
+      background-color: #fff;
+  }
+
+  .product-item input:focus + label,
+  .product-item input:not(:placeholder-shown) + label {
+      top: -10px;
+      left: 5px;
+      font-size: 12px;
+      color: #28a745;
+  }
+
+  .container {
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-item: center;
+  }
+
+        /* Estilos de cada producto */
+  .product-item {
+    background-color: white;
+    width: 500px;
+    height auto;
+    margin: 15px;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+
+  }
+      
+  .product-item h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+
+  .product-item p {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+  .product-item 
+  .product-image {
+      width: 300px;
+      height: 200px
+  }
+
+  /* Precio */
+  .price {
+      font-size: 24px;
+      font-weight: bold;
+      color: #28a745;
+      margin-bottom: 10px;
+  }
+
+  /* Botón */
+  .product-item button {
+      background-color: orange;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      width: 100%;
+      transition: background-color 0.3s;
+  }
+  
+  .product-item button:hover {
+      background-color: #e69500;
+  }
+
+  hr {
+      border: none;
+      border-top: 1px solid #d3d3d3; /* Gris claro */
+      opacity: 0.5; /* Menor contraste */
+      margin-top: 20px;
+      margin-bottom: 20px;
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const passwordField = document.getElementById("password-field");
+    const passwordHint = document.getElementById("password-hint");
+
+    const usernameField = document.getElementById("username-field");
+    const usernameHint = document.getElementById("username-hint");
+
+    passwordField.addEventListener("focus", function() {
+      passwordHint.style.display = "inline";
+    });
+
+    passwordField.addEventListener("blur", function() {
+      passwordHint.style.display = "none";
+    });
+
+    usernameField.addEventListener("focus", function() {
+      usernameHint.style.display = "inline";
+    });
+
+    usernameField.addEventListener("blur", function() {
+      usernameHint.style.display = "none";
+    });
+  });
+
+  
+</script>
+
+<div class="container">
+  <div class="product-item">
+    <%= form_with(model: @user) do |f| %>
+
+      <% if flash[:alert] %>
+        <div class="alert" style="color: red; font-weight: bold;">
+          <%= flash[:alert] %>
+        </div>
+      <% end %>
+      <div>  
+        <h4>E-mail</h4>
+        <%= f.email_field :email, placeholder: "example@mail.com"%>
+      </div>
+
+      <div>
+        <h4>Username</h4>
+        <%= f.text_field :username, placeholder: "YourUsername123", id: "username-field"%>
+        <span id="username-hint" style="display: none; color: #888; font-size: 0.9em;">Minimum 6 Maximun15 characters</span>
+        
+      </div>
+
+      <div>
+        <h4>Password</h4>
+        <%= f.password_field :password, placeholder: "YourPassword123", id: "password-field"%>
+        <span id="password-hint" style="display: none; color: #888; font-size: 0.9em;">Minimum 6 characters</span>
+      </div>
+
+      <div>
+        <%= f.submit "Submit", style:"width:500px"%>
+      </div>
+    <% end %>
+    
+    <hr>
+    <div class="SingLogIn-button" style="text-align:center">
+      <p>Already registered?</p>
+      <%= link_to "<button>LogIn</button>".html_safe, new_session_path, style:"color: white", class: "logo-link"%>
     </div>
-  <% end %>
-
-  <div>
-    <%= form.label :user, style: "display: block" %>
-    <%= form.text_field :user %>
   </div>
-
-  <div>
-    <%= form.label :price, style: "display: block" %>
-    <%= form.text_field :price %>
-  </div>
-
-  <div>
-    <%= form.label :stock, style: "display: block" %>
-    <%= form.number_field :stock %>
-  </div>
-
-  <div>
-    <%= form.label :image, style: "display: block" %>
-    <%= form.text_field :image %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

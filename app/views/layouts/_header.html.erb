@@ -1,0 +1,30 @@
+<header>
+
+  <div class="logo-container" style="display: flex; justify-content: center; align-items: center; text-align:center"> 
+    <%= link_to root_path do%>
+      <%= image_tag "logo.png", style:"height: 100px; padding:15px", class: "logo-link"%>
+    <% end %>
+  </div>
+  <div id="left_header">
+    <h1>Pacific Northwest X-Ray Inc.</h1>
+    <div class="search-bar">
+      <input type="text" placeholder="Search for X-Ray products..." id="searchbar_input">
+    </div>
+  </div>
+
+  <div id="rigth_header">
+  <% unless (controller_name == "users" && action_name == "new") || (controller_name == "sessions" && action_name == "new") %>
+    <% if Current.user %>
+      <p style="margin:0px">Welcome:  <%= Current.user.username%></p>
+      <%= link_to "<button>LogOut</button>".html_safe, session_path(Current.user.id), data: {
+        turbo_method: :delete,
+        turbo_confirm: "Are you sure you want to log out?" 
+      }, class: "logo-link", style: "color: white; text-align:center;" %>
+    <% else %>
+      <%= link_to "<button>SignIn</button>".html_safe, new_user_path, style:"color: white" , class: "logo-link"%>
+      <p style="margin:0px">OR</p>
+      <%= link_to "<button>LogIn</button>".html_safe, new_session_path, style:"color: white", class: "logo-link"%>
+    <% end %>
+  <% end %>
+  </div>
+</header>
