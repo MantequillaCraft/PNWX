@@ -1,124 +1,151 @@
 <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f7f7f7;
-        }
-        
-        .container {
-            max-width: 1000px;
-            margin: auto;
-            padding: 20px;
-            background-color: white;
-        }
-        .product-overview {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-        }
-        .product-image img {
-            width: 200px;
-            height: auto;
-            border-radius: 5px;
-            border: 1px solid #e0e0e0;
-            padding: 5px;
-            background-color: #f7f7f7;
-        }
-        .product-details {
-            max-width: 500px;
-            margin-left: 20px;
-        }
-        .product-details h1 {
-            font-size: 28px;
-            margin-bottom: 5px;
-        }
-        .product-details p {
-            font-size: 14px;
-            color: #666;
-        }
-        .price-box {
-            background-color: #f9f9f9;
-            border: 1px solid #e0e0e0;
-            padding: 15px;
-            text-align: center;
-            width: 200px;
-            border-radius: 5px;
-        }
-        .price-box .price {
-            color: green;
-            font-size: 24px;
-            font-weight: bold;
-        }
-        .price-box .shipping-info {
-            color: gray;
-            font-size: 12px;
-            margin-top: 5px;
-        }
-        .price-box button {
-            background-color: orange;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 5px;
-            margin-top: 10px;
-            width: 100%;
-        }
-        .product-info, .additional-info {
-            margin-top: 20px;
-            padding: 15px;
-            border: 1px solid #e0e0e0;
-            border-radius: 5px;
-            background-color: #f9f9f9;
-        }
-        .additional-info img {
-            max-width: 100%;
-            height: auto;
-            margin-top: 10px;
-            border: 1px solid #e0e0e0;
-            padding: 5px;
-            background-color: white;
-        }
-    </style>
-
-
-<%= link_to "Back", "javascript:history.back()", class: "back-button" %>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+  }
+  
+  .container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+    background-color: white;
+  }
+  .product-overview {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  .product-image img {
+    width: 200px;
+    height: auto;
+    border-radius: 5px;
+    border: 1px solid #e0e0e0;
+    padding: 5px;
+    background-color: #f7f7f7;
+  }
+  .product-details {
+    max-width: 500px;
+    margin-left: 20px;
+  }
+  .product-details h1 {
+    font-size: 28px;
+    margin-bottom: 5px;
+  }
+  .product-details p {
+    font-size: 14px;
+    color: #666;
+  }
+  .price-box {
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    padding: 15px;
+    text-align: center;
+    width: 200px;
+    border-radius: 5px;
+  }
+  .price-box .price {
+    color: green;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  .price-box .shipping-info {
+    color: gray;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  .price-box button {
+    background-color: orange;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+    width: 100%;
+  }
+  .product-info, .additional-info {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  .additional-info img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+    border: 1px solid #e0e0e0;
+    padding: 5px;
+    background-color: white;
+  }
+</style>
 
 <div class="container">
-    <div class="product-overview">
-        <div class="product-image">
-            <%=image_tag @product.image%>
+  <div class="product-overview">
+    <div class="product-image">
+      <%=image_tag @product.image%>
+    </div>
+
+    <div class="product-details">
+      <h1>Leaded Glass</h1>
+      <p>Discover our comprehensive range of high-quality X-ray solutions for medical imaging professionals.</p>
+      <h2><%= @product.name%></h2>
+      <p><%= @product.description%></p>
+    </div>
+
+    <div class="price-box">
+      <div class="price"> $ <%= @product.price %></div>
+        <div class="shipping-info">
+            FREE International Returns<br>
+            $21.95 Shipping & Import Charges to Mexico Details
         </div>
-        <div class="product-details">
-            <h1>Leaded Glass</h1>
-            <p>Discover our comprehensive range of high-quality X-ray solutions for medical imaging professionals.</p>
-            <h2><%= @product.name%></h2>
-            <p><%= @product.description%></p>
-        </div>
-        <div class="price-box">
-            <div class="price"> $ <%= @product.price %></div>
-            <div class="shipping-info">
-                FREE International Returns<br>
-                $21.95 Shipping & Import Charges to Mexico Details
-            </div>
-            <p>Delivery Thursday, September 12 or fastest delivery Monday, September 9. Order within 5 hrs</p>
-            <button>Buy Now</button>
-            <button>Add to Cart</button>
-        </div>
+        <p>Delivery Thursday, September 12 or fastest delivery Monday, September 9. Order within 5 hrs</p>
+        <% if Current.user %>
+         <button>Buy Now</button>
+          <button id="add-to-cart-button">Añadir al carrito</button>
+          <div id="cart-message" style="display: none; color: green; font-weight: bold; opacity: 0; transition: opacity 2s;">
+            Product added to the cart!
+          </div>
+          <% else %>
+            <p style="color: red">
+              You need to 
+                <%= link_to "LogIn", new_user_path, style:"color: red; font-weight: bold; text-decoration: underline;transition: color 0.3s ease;" %> 
+              to purchase a product.
+            </p>
+        <% end %>
+        <script>
+          document.getElementById('add-to-cart-button').addEventListener('click', function() {
+            const message = document.getElementById('cart-message');
+
+            // Mostrar el mensaje configurando su opacidad
+            message.style.display = 'block';
+            message.style.opacity = '1';
+
+            // Después de un breve momento, iniciar el desvanecimiento
+            setTimeout(() => {
+              message.style.opacity = '0';
+
+              // Ocultar completamente después de que termine la transición
+              setTimeout(() => {
+                message.style.display = 'none';
+              }, 1000);  // El tiempo coincide con la duración de la transición
+            }, 1000);  // Tiempo que permanece visible antes de desvanecerse
+          });
+        </script>
+      </div>
     </div>
 
     <div class="product-info">
-        <h3>Product Information</h3>
-        <p><strong>ALSO AVAILABLE:</strong> Hurricane Glass rated for various missile impacts, bullet-resistant glass, fire-rated glass, and both fire-rated and bullet-resistant glass. Call for pricing.</p>
-        <p>Standard X-Ray lead glass pricing below is 5/16" thick, providing 1/16" (4 lb) lead equivalent shielding value. Higher shielding ratings are available upon request. X-Ray Safety Glass is available upon request, labeled to meet impact resistance ANSI Z97.1 and CPSC 16 CFR 1201 Cat 2. X-Ray Safety Glass is required in any window that occurs within 25" of any door opening, or within 36" from the floor, per glazing safety codes and regulations. X-Ray lead glass should be utilized in interior applications only.</p>
+      <h3>Product Information</h3>
+      <p><strong>ALSO AVAILABLE:</strong> Hurricane Glass rated for various missile impacts, bullet-resistant glass, fire-rated glass, and both fire-rated and bullet-resistant glass. Call for pricing.</p>
+      <p>Standard X-Ray lead glass pricing below is 5/16" thick, providing 1/16" (4 lb) lead equivalent shielding value. Higher shielding ratings are available upon request. X-Ray Safety Glass is available upon request, labeled to meet impact resistance ANSI Z97.1 and CPSC 16 CFR 1201 Cat 2. X-Ray Safety Glass is required in any window that occurs within 25" of any door opening, or within 36" from the floor, per glazing safety codes and regulations. X-Ray lead glass should be utilized in interior applications only.</p>
     </div>
 
     <div class="additional-info">
-        <img src="https://via.placeholder.com/600x300" alt="Technical Diagram">
+      <img src="https://via.placeholder.com/600x300" alt="Technical Diagram">
     </div>
+  </div>
 </div>
-
-</body>
-</html>

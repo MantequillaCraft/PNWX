@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
     unless Current.user 
       redirect_to new_user_path
     end
-    
   end
+  
   
 end

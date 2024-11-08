@@ -37,8 +37,7 @@ class ProductsController < ApplicationController
         format.html { redirect_to @product, notice: "Product was successfully created." }
         format.json { render :show, status: :created, location: @product }
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
+        redirect_to new_product_path, alert: "Error saving data"
       end
     end
   end
@@ -63,6 +62,13 @@ class ProductsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to products_path, status: :see_other, notice: "Product was successfully destroyed." }
       format.json { head :no_content }
+    end
+  end
+
+  def add_to_cart
+    # Aquí puedes incluir la lógica para añadir el producto al carrito
+    respond_to do |format|
+      format.js   # Responde con un archivo JS
     end
   end
 

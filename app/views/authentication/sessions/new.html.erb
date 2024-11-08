@@ -118,7 +118,6 @@
     margin-top: 20px;
     margin-bottom: 20px;
   }
-
 </style>
 
 <script>
@@ -153,13 +152,15 @@
 
 <div class="container">
   <div class="product-item">
+
+  <h1>LogIn</h1>
     <%= form_with(url: sessions_path) do |f| %>
 
       <% if flash[:alert] %>
         <div class="alert" style="color: red; font-weight: bold;">
           <%= flash[:alert] %>
         </div>
-      <% end %>
+    <% end %>
 
       <div>
         <h4>Email or Username</h4>

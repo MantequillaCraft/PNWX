@@ -170,3 +170,7 @@ h2 {
     background-color: white;
     width: 25%;
 }
+
+.product-item .submit:hover {
+  background-color:#E9F2FF;
+}

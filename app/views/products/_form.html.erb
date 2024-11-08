@@ -1,47 +1,57 @@
 <%= form_with(model: product) do |form| %>
-  <% if product.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
-
-      <ul>
-        <% product.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+        
+  <% if flash[:alert] %>
+    <div class="alert" style="color: red; font-weight: bold;">
+      <%= flash[:alert] %>
     </div>
   <% end %>
 
+
   <div>
-    <%= form.label :name, style: "display: block" %>
+    <h4>Product Name</h4>
     <%= form.text_field :name %>
   </div>
 
   <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
+    <h4>Product Description</h4>
+    <%= form.text_field :description %>
   </div>
 
   <div>
-    <%= form.label :price, style: "display: block" %>
+    <h4>Product Price</h4>
     <%= form.text_field :price %>
   </div>
 
   <div>
-    <%= form.label :stock, style: "display: block" %>
+    <h4>Product Stock</h4>
     <%= form.number_field :stock %>
   </div>
 
   <div>
-    <%= form.label :category_id, style: "display: block" %>
+    <h4>Product Category</h4>
     <%= form.collection_select :category_id, Category.all.order(name: :asc), :id, :name %>
   </div>
 
   <div>
-    <%= form.label :image, style: "display: block" %>
+    <h4>Product Image</h4>
     <%= form.file_field :image %>
   </div>
 
-  <div>
-    <%= form.submit %>
-  </div>
+  <%if action_name == "new"%>
+    <div class="SingLogIn-button" style="display: flex">
+      <%= link_to "<button>Back to products</button>".html_safe, "javascript:history.back()", style:"width:47.5%;" %>
+      <%= form.submit "Submit", style:"width:100%" , class:"submit", style:"width:47.5%;" %>
+    </div>
+  <% else %>
+    <div>
+      <%= form.submit "Submit", style:"width:100%" , class:"submit" %>
+    </div>
+
+    <hr>
+    <div class="SingLogIn-button" style="display: flex">
+      <%= link_to "<button>Back to products</button>".html_safe, "javascript:history.back()", style:"width:47.5%;" %>
+      <%= link_to "<button>Show this product</button>".html_safe, @product, style:"width:47.5%;"%> 
+    </div>
+  <% end %>
+  
 <% end %>

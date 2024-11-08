@@ -5,7 +5,9 @@ Rails.application.routes.draw do
 
   get "/lead_glass", to: "products#lead_glass"
   get "/mobile_lead_barriers", to: "products#mobile_lead_barriers"
-  resources :products
+  resources :products do
+    post 'add_to_cart', on: :member
+  end
   resources :categories, except: [:show]
 
   namespace :authentication, path: '', as: '' do

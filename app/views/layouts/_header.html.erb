@@ -1,5 +1,43 @@
-<header>
+<script>
+  document.addEventListener("turbo:load", function() { // Escucha turbo:load para cada navegación
+    let lastScrollTop = 0;
+    const header = document.querySelector("header");
+    const scrollThreshold = 90; // Ajusta el umbral de sensibilidad
 
+    // Restablece la posición del header al cargar una nueva página
+    header.style.top = "0";
+
+    // Elimina cualquier listener previo de scroll para evitar múltiples llamadas
+    window.removeEventListener("scroll", handleScroll);
+
+    // Define la función de scroll
+    function handleScroll() {
+      let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+      if (Math.abs(scrollTop - lastScrollTop) > scrollThreshold) {
+        if (scrollTop > lastScrollTop) {
+          // Oculta el header al hacer scroll hacia abajo
+          header.style.top = "-150px"; // Ajustado a -150px según tu preferencia
+        } else {
+          // Muestra el header al hacer scroll hacia arriba
+          header.style.top = "0";
+        }
+        lastScrollTop = scrollTop;
+      }
+    }
+
+    // Agrega el listener de scroll
+    window.addEventListener("scroll", handleScroll);
+  });
+
+</script>
+
+
+<header style="position: fixed;
+  top: 0;
+  width: 100%;
+  transition: top 0.3s;
+  z-index: 1000;">
   <div class="logo-container" style="display: flex; justify-content: center; align-items: center; text-align:center"> 
     <%= link_to root_path do%>
       <%= image_tag "logo.png", style:"height: 100px; padding:15px", class: "logo-link"%>
@@ -28,3 +66,4 @@
   <% end %>
   </div>
 </header>
+
