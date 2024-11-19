@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   get "/lead_glass", to: "products#lead_glass"
   get "/mobile_lead_barriers", to: "products#mobile_lead_barriers"
+   get "/lead_aprons", to: "products#lead_aprons"
   resources :products do
     post 'add_to_cart', on: :member
   end

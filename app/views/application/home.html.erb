@@ -3,9 +3,20 @@
   <p>Discover our comprehensive range of high-quality X-ray solutions for medical imaging professionals.</p>
 
   <div class="product-categories">
+
+    <div class="product-card">
+      <h3>Our Products</h3>
+      <p>Superior radiation shielding for X-Ray Rooms</p>
+      <%= image_tag "AllProducts.jpeg",  style:"height: 150px; padding-bottom:15px"%>
+      <%= link_to products_path do %>
+        <button class="logo-link">Explore Products</button>
+      <% end %>
+    </div>
+
     <div class="product-card">
       <h3>Lead Glass</h3>
       <p>Superior radiation shielding for X-Ray Rooms</p>
+      <%= image_tag "LeadGlass.jpg",  style:"height: 150px; padding-bottom:15px"%>
       <%= link_to lead_glass_path do %>
         <button class="logo-link">Explore Products</button>
       <% end %>
@@ -14,21 +25,19 @@
     <div class="product-card">
       <h3>Mobile Lead Barriers</h3>
       <p>Flexible radiation protection solution</p>
+      <%= image_tag "Mobile Lead Barriers.png", style:"height: 150px; padding-top:15px;  padding-bottom:15px"%>
       <%= link_to mobile_lead_barriers_path do %>
         <button class="logo-link">Explore Products</button>
       <% end %>
     </div>
 
     <div class="product-card">
-      <h3>Resolution Test Tools / Phantoms</h3>
-      <p>Superior radiation shielding for X-Ray Rooms</p>
-      <button>Explore Products</button>
-    </div>
-
-    <div class="product-card">
       <h3>Lead Aprons</h3>
       <p>Comfortable, effective personal radiation protection</p>
-      <button>Shop Aprons</button>
+      <%= image_tag "Lead Aprons.jpeg", style:"height: 150px; padding-bottom:15px"%>
+      <%= link_to lead_aprons_path do %>
+        <button class="logo-link">Explore Products</button>
+      <% end %>
     </div>
   </div>
 

@@ -1,90 +1,10 @@
-<style>
-  body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f7f7f7;
-      color: #333;
-  }
-
-  .container {
-      max-width: 1200px;
-      margin: auto;
-      padding: 0px 20px 20px 20px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-  }
-
-  .product-item {
-      background-color: white;
-      width: 300px;
-      margin: 15px;
-      padding: 20px;
-      border: 1px solid #e0e0e0;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s;
-  }
-  
-  .product-item:hover {
-      transform: translateY(-5px);
-  }
-
-  /* Información del producto */
-  .product-item h3 {
-      font-size: 20px;
-      color: #333;
-      margin-bottom: 10px;
-  }
-
-  .product-item p {
-      color: #666;
-      font-size: 14px;
-      margin-bottom: 15px;
-  }
-  .product-item 
-  .product-image {
-      width: 300px;
-      height: 200px
-  }
-
-  /* Precio */
-  .price {
-      font-size: 24px;
-      font-weight: bold;
-      color: #28a745;
-      margin-bottom: 10px;
-  }
-
-  /* Botón */
-  .product-item button {
-      background-color: orange;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
-      border-radius: 5px;
-      width: 100%;
-      transition: background-color 0.3s;
-  }
-  
-  .product-item button:hover {
-      background-color: #e69500;
-  }
-</style>
-
 <p style="color: green"><%= notice %></p>
-<div id="products">
-  <% products.each do |product| %>
-    <div class="container">
-    <div class="product-item">
-        <%= image_tag product.image, class:"product-image"%>
-        <h3><%= product.name%></h3>
-        <p><%= product.description%></p>
-        <div class="price">$ <%= product.price%></div>
-        <%= link_to "<button>View Product</button>".html_safe, product%>
-    </div>
-  <% end %>
-</div>
+<% products.each do |product| %>
+  <div class="product-item">
+    <%= image_tag product.image, class:"product-image"%>
+    <h3><%= product.name%></h3>
+    <p><%= product.description%></p>
+    <div class="price">$ <%= product.price%></div>
+    <%= link_to "<button>View Product</button>".html_safe, product%>
+  </div>
+<% end %>

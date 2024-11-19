@@ -120,36 +120,6 @@
   }
 </style>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const passwordField = document.getElementById("password-field");
-    const passwordHint = document.getElementById("password-hint");
-
-    const usernameField = document.getElementById("username-field");
-    const usernameHint = document.getElementById("username-hint");
-
-    passwordField.addEventListener("focus", function() {
-      passwordHint.style.display = "inline";
-    });
-
-    passwordField.addEventListener("blur", function() {
-      passwordHint.style.display = "none";
-    });
-
-    usernameField.addEventListener("focus", function() {
-      usernameHint.style.display = "inline";
-    });
-
-    usernameField.addEventListener("blur", function() {
-      usernameHint.style.display = "none";
-    });
-  });
-
-  
-</script>
-
-
-
 <div class="container">
   <div class="product-item">
 
@@ -184,3 +154,30 @@
   </div>
 </div>
 
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const passwordField = document.getElementById("password-field");
+    const passwordHint = document.getElementById("password-hint");
+
+    const usernameField = document.getElementById("username-field");
+    const usernameHint = document.getElementById("username-hint");
+
+    passwordField.addEventListener("focus", function() {
+      passwordHint.style.display = "inline";
+    });
+
+    passwordField.addEventListener("blur", function() {
+      passwordHint.style.display = "none";
+    });
+
+    usernameField.addEventListener("focus", function() {
+      usernameHint.style.display = "inline";
+    });
+
+    usernameField.addEventListener("blur", function() {
+      usernameHint.style.display = "none";
+    });
+  });
+
+  
+</script>

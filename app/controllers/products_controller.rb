@@ -5,6 +5,7 @@ class ProductsController < ApplicationController
   # GET /products or /products.json
   def index
     @products = Product.all
+    @product_count = 0
   end
 
   def lead_glass
@@ -13,6 +14,10 @@ class ProductsController < ApplicationController
 
   def mobile_lead_barriers
     @products = Product.where("category_id = 2")
+  end
+
+  def lead_aprons
+    @products = Product.where("category_id = 3")
   end
 
   # GET /products/1 or /products/1.json

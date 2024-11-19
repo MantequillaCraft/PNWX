@@ -39,7 +39,7 @@
 
   <%if action_name == "new"%>
     <div class="SingLogIn-button" style="display: flex">
-      <%= link_to "<button>Back to products</button>".html_safe, "javascript:history.back()", style:"width:47.5%;" %>
+      <%= link_to "<button>Back to products</button>".html_safe, products_path, style:"width:47.5%;" %>
       <%= form.submit "Submit", style:"width:100%" , class:"submit", style:"width:47.5%;" %>
     </div>
   <% else %>
